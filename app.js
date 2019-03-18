@@ -24,17 +24,12 @@ router.get('/', async (ctx, next) => {
   ctx.redirect('/list');
 });
 
-// router.get('/login', async (ctx, next) => {
-//   ctx.body = "test";
-// });
-
 router.post('/login', async (ctx, next) => {
   let   name     = ctx.request.body.name || '',
         password = ctx.request.body.password || '';
   const result   = true;                             //TODO:做数据库验证
   if (name=== "koa" && password === "123") {
     ctx.cookies.set("LoginStatus", true);
-    ctx.redirect('/test');
   } else {
     ctx.body = "Login error"
   }

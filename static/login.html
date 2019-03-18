@@ -33,9 +33,10 @@
           password: password.value
         })
         .then(function (response) {
+          console.log(response);
           if (response.status === 200) {
             console.log(response.data);
-
+            window.location.href="/list.html";
           }
         })
         .catch(function (error) {
