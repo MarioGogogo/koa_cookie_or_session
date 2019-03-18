@@ -30,10 +30,16 @@ router.post('/login', async (ctx, next) => {
   const result   = true;                             //TODO:做数据库验证
   if (name=== "koa" && password === "123") {
     ctx.cookies.set("LoginStatus", true);
+    ctx.body = "Login success"
   } else {
     ctx.body = "Login error"
   }
 });
+
+router.get('/outlogin', async (ctx, next) => {
+  ctx.redirect('/login');
+});
+
 
 
 app.listen(3000, function () {

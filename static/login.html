@@ -36,7 +36,12 @@
           console.log(response);
           if (response.status === 200) {
             console.log(response.data);
-            window.location.href="/list.html";
+            if (response.data === "Login error") {
+              alert('登录失败，账号或密码错误');
+            } else {
+              window.location.href = "/list.html";
+            }
+
           }
         })
         .catch(function (error) {
